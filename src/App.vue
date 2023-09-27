@@ -1,4 +1,9 @@
 <script>
+import ApiConnect from './components/apiConnect.vue';
+
+export default{
+  components:{ApiConnect}
+}
 </script>
 
 <template>
@@ -7,6 +12,8 @@
   </header>
 
   <main>
+
+    <api-connect></api-connect>
   
   </main>
 </template>
