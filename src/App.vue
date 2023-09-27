@@ -1,8 +1,10 @@
 <script>
+
 import GreetingJulia from "./components/Greeting-Julia.vue"
+import ApiConnect from './components/apiConnect.vue';
 
 export default{
-  components:{GreetingJulia}
+  components:{GreetingJulia, ApiConnect}
 }
 </script>
 
@@ -12,7 +14,10 @@ export default{
   </header>
 
   <main>
+
   <GreetingJulia />
+  <api-connect></api-connect>
+
   </main>
 </template>
 
