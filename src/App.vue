@@ -1,7 +1,7 @@
 <script>
 
 import GreetingJulia from "./components/Greeting-Julia.vue"
-import ApiConnect from './components/apiConnect.vue';
+import ApiConnect from './components/ApiConnect.vue';
 
 export default{
   components:{GreetingJulia, ApiConnect}

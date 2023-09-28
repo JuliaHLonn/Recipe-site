@@ -1,7 +1,11 @@
 <template>
     <div onclick="getCategories()">
         <p>Categories:</p>
-        {{ list }}
+        <ul>
+            <li v-for="category in list">
+            <a href="#">{{ category.name }} ({{ category.count }})</a>
+            </li>
+        </ul>
     </div>
 </template>
 
@@ -28,4 +32,4 @@ export default {
 
 </script>
 
-<style scoped></style>
+<style scoped> a {color:black}</style>
