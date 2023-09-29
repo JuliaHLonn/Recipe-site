@@ -1,7 +1,7 @@
 <template>
     <div>
         <ul class="list">
-            <li v-for="recipe in listOfRecipe" class="recipe" @click="clickMethod(recipe)">
+            <li v-for="recipe in listOfRecipe" :key="recipe.id" class="recipe" @click="clickMethod(recipe)">
                 <h4>
                     Name: {{ recipe.title }}
                 </h4>
