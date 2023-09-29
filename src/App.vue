@@ -1,8 +1,12 @@
 <script>
 import GreetingJulia from "./components/Greeting-Julia.vue"
+import card from './components/CardComponent.vue'
 
 export default{
-  components:{GreetingJulia}
+  components:{GreetingJulia,
+card
+
+  }
 }
 </script>
 
@@ -13,6 +17,7 @@ export default{
 
   <main>
   <GreetingJulia />
+  <card></card>
   </main>
 </template>
 
