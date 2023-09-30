@@ -3,14 +3,14 @@
 import GreetingJulia from "./components/Greeting-Julia.vue"
 
 import card from './components/CardComponent.vue'
-import ApiConnect from './components/apiConnect.vue';
+import ApiConnect from './components/ApiConnect.vue';
 
 export default{
   components:{GreetingJulia,ApiConnect,
 card
 
   }
-
+}
 
 
 </script>
