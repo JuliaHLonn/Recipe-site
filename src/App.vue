@@ -1,13 +1,12 @@
 <script>
+import { RouterLink, RouterView } from 'vue-router'
 
 import GreetingJulia from "./components/Greeting-Julia.vue"
 
-import card from './components/CardComponent.vue'
 import ApiConnect from './components/ApiConnect.vue';
 
 export default{
-  components:{GreetingJulia,ApiConnect,
-card
+  components:{GreetingJulia,ApiConnect
 
   }
 }
@@ -24,12 +23,17 @@ card
 
   <GreetingJulia />
 
-  <card></card>
+
 
   <api-connect></api-connect>
 
 
+
+
+  <RouterView />
   </main>
+
+ 
 </template>
 
 <style scoped>
