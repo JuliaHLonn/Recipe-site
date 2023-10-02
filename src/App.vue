@@ -1,10 +1,13 @@
 <script>
 
+
 import ApiConnect from './components/ApiConnect.vue';
 
 export default{
   components:{ApiConnect}
 }
+
+
 </script>
 
 <template>
@@ -14,7 +17,10 @@ export default{
 
   <main>
 
+  <card></card>
+
   <api-connect></api-connect>
+
 
   </main>
 </template>
