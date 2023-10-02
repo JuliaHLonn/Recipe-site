@@ -8,6 +8,9 @@
             </li>
         </ul>
         </div>
+        <div :class="result">
+            <!-- här ska det vara olika divs, som kort för recept ur vald kategori och sökresultat -->
+        </div>
         
     </div>
 </template>
