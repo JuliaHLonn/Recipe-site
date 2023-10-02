@@ -1,10 +1,10 @@
 <template>
-    <div onclick="getCategories()">
+        <div>
         <div :class="categoryContainer">
             <p>Categories:</p>
         <ul>
-            <li v-for="category in list">
-            <a href="#">{{ category.name }} ({{ category.count }})</a>
+            <li  v-for="category in list" >
+            <a href="#" @click="chosenCategory(category.name)">{{ category.name }} ({{ category.count }})</a>
             </li>
         </ul>
         </div>
@@ -20,21 +20,21 @@
 export default {
     data() {
         return {
-            list: "test",
+            list: this.getCategories(),
             categoryContainer: "side-bar"
     
         }
     },
-    created() {
-        this.getCategories()
-        
-    },
+  
     methods: {
         getCategories() {
             fetch(`https://jau22-recept-grupp6-9v8e25zt13tu.reky.se/categories`)
                 .then((response) => response.json())
                 .then((data) => { this.list = data })
                 .catch((error) => console.log(error));
+        },
+        chosenCategory(category) {
+console.log(category)
         }
         
     }
