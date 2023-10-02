@@ -5,7 +5,7 @@ import { RouterLink, RouterView } from 'vue-router'
 import ApiConnect from './components/ApiConnect.vue';
 
 export default{
-  components:{GreetingJulia,ApiConnect}
+  components:{ApiConnect}
 }
 
 
@@ -18,7 +18,7 @@ export default{
 
   <main>
 
-  <GreetingJulia />
+  
 
 
   <api-connect></api-connect>
