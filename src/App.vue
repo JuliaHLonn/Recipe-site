@@ -2,10 +2,10 @@
 import { RouterLink, RouterView } from 'vue-router'
 
 
-import ApiConnect from './components/ApiConnect.vue';
+
 
 export default{
-  components:{ApiConnect}
+  components:{}
 }
 
 
@@ -21,7 +21,7 @@ export default{
   
 
 
-  <api-connect></api-connect>
+  
 
 
 
