@@ -1,21 +1,6 @@
-<template>
-        <div>
-        <div :class="categoryContainer">
-            <p>Categories:</p>
-        <ul>
-            <li  v-for="category in list" >
-            <a href="#" @click="chosenCategory(category.name)">{{ category.name }} ({{ category.count }})</a>
-            </li>
-        </ul>
-        </div>
-        <div :class="result">
-            <!-- här ska det vara olika divs, som kort för recept ur vald kategori och sökresultat -->
-        </div>
-        
-    </div>
-</template>
-
 <script>
+
+import {RouterLink, RouterView} from "vue-router"
 
 export default {
     data() {
@@ -41,6 +26,27 @@ console.log(category)
 }
 
 </script>
+
+<template>
+        <div>
+        <div :class="categoryContainer">
+            <p>Categories:</p>
+        <ul>
+            <li  v-for="category in list" >
+            <!-- <a href="#" @click="chosenCategory(category.name)">{{ category.name }} ({{ category.count }})</a> -->
+            <RouterLink to ="/Category" @click="chosenCategory(category.name)">{{ category.name }} ({{ category.count }})</RouterLink>
+        </li>
+        </ul>
+        </div>
+        <RouterView></RouterView>
+        <div :class="result">
+            <!-- här ska det vara olika divs, som kort för recept ur vald kategori och sökresultat -->
+        </div>
+        
+    </div>
+</template>
+
+
 
 <style scoped> 
 a {color:black}
