@@ -1,12 +1,12 @@
 <template>
-  <div>
+  <div class="searchBar">
     <input
       v-model="search"
       @input="filterItems"
       type="text"
       placeholder="Search..."
     />
-    <ul>
+    <ul class="searchResults" v-if="search.length>2 && filteredItems.length>0"><!-- gömmer resultatet tills man skrivit minst tre tecken -->
       <li v-for="item in filteredItems" :key="item.id">{{ item.name }}</li>
     </ul>
   </div>
@@ -32,9 +32,11 @@ export default {
   computed: {
     filteredItems: function () {
       const search = this.search.toLowerCase();
-      return this.items.filter((item) =>
+      var results = this.items.filter((item) =>
         item.name.toLowerCase().includes(search)
       );
+      
+      return results
     },
   },
 };
@@ -43,4 +45,9 @@ export default {
  
 
 <style scoped>
+.searchBar{
+  float: right;
+}
+
+
 </style>
