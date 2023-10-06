@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div>
+        <div :class="commentForm"> <!-- På knapptryck, först disable sen byts det ut mot tackmeddelande -->
             <h2>Kommentarer</h2>
             <textarea v-model="kommentar" placeholder="Skriv din kommentar här.."></textarea> <br>
             <input v-model="namn" placeholder="Namn">
@@ -28,6 +28,7 @@ export default {
         getFormData(kommentar, namn){
             console.log(kommentar, namn)
         },
+        
         postSomething(url, data) {
             const response = fetch(url, {
                 method: "POST",

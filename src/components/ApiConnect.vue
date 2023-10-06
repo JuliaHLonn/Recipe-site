@@ -37,11 +37,6 @@ console.log(category)
             <RouterLink to ="/Category" @click="chosenCategory(category.name)">{{ category.name }} ({{ category.count }})</RouterLink>
         </li>
         </ul>
-        <!-- </div>
-        <RouterView></RouterView>
-        <div :class="result">
-            här ska det vara olika divs, som kort för recept ur vald kategori och sökresultat
-        </div> -->
         
     </div>
 </template>
@@ -49,12 +44,4 @@ console.log(category)
 
 
 <style scoped> 
-/* a {color:black}
-.side-bar {
-background-color: blanchedalmond;
-width: 15%;
-height: 40%;
-border-radius: 10px;
-padding: 10px;
-} */
 </style>
