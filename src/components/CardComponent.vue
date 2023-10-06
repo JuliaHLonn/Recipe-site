@@ -1,7 +1,7 @@
 <template>
     <div>
         <ul class="list">
-            <li v-for="recipe in listOfRecipe" :key="recipe.id" class="recipe" @click="clickMethod(recipe)">
+            <li v-for="recipe in listOfRecipe" :key="recipe.id" class="recipe" @click="clickMethod(recipe._id)">
                 <h4>
                     Name: {{ recipe.title }}
                 </h4>
@@ -50,8 +50,8 @@ export default {
         },
         
         
-        clickMethod(item) {
-            window.alert(`you click ${item.title}`)
+        clickMethod(id) {
+            this.$router.push(`/Recipe/${id}`)
         }
 
     }
