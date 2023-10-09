@@ -21,10 +21,19 @@
 
     </ul>
     </div>
+    
+    <ShowRating :rating="recipe.avgRating"></ShowRating>
+    <SetRating :recipeId="recipe._id"></SetRating>
+   
+    
 </template>
 
 <script>
+import SetRating from './SetRating.vue'
+import ShowRating from './ShowRating.vue';
+
 export default {
+    
     data() {
         return {
             recipe: {},
@@ -50,7 +59,11 @@ export default {
                 })
                 .catch(error => ("Error:", error));
         },
-    }
+    },
+    components:{
+    SetRating,
+    ShowRating
+}
 }
 </script>
 
