@@ -20,6 +20,7 @@
       </li>
 
     </ul>
+>>>>>>>>> Temporary merge branch 2
     </div>
     
     <ShowRating :rating="recipe.avgRating"></ShowRating>
@@ -52,7 +53,10 @@ export default {
                 .then(response => response.json())
                 .then(data => {
                     this.recipe = data
-                    this.ingredientsTotal = this.recipe.ingredients.lengt 
+                    console.log(this.recipe)
+                    this.ingredientsTotal = this.recipe.ingredients.length
+                    console.log(this.recipe.title)
+                   
                 })
                 .catch(error => ("Error:", error));
         },
