@@ -52,10 +52,7 @@ export default {
                 .then(response => response.json())
                 .then(data => {
                     this.recipe = data
-                    console.log(this.recipe)
-                    this.ingredientsTotal = this.recipe.ingredients.length
-                    console.log(this.recipe.title)
-                   
+                    this.ingredientsTotal = this.recipe.ingredients.lengt 
                 })
                 .catch(error => ("Error:", error));
         },
