@@ -1,8 +1,5 @@
 <template>
-    <div>
-
-        <p class="ratingdisplay">Betyg:  <span class="avgStars">{{ getStars(rating) }}</span></p>
-    </div>
+        <p class="ratingDisplay">Betyg:  <span class="avgStars">{{ getStars(rating) }}</span></p>
 </template>
 
 <script>
@@ -27,8 +24,6 @@
 </script>
 
 <style scoped>
-.avgStars{
-    color: rgba(223, 223, 3, 0.932);
-}
+
 
 </style>

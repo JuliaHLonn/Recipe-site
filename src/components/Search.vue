@@ -23,4 +23,18 @@ export default {
 
  
 
-<style scoped></style>
+<style scoped>
+.searchBar input{
+  font-size:28px;
+  width:100%;
+  border-radius:20px;
+  box-sizing: border-box;
+  padding:10px;
+
+  
+}
+.searchBar{
+  flex:1;
+}
+
+</style>
