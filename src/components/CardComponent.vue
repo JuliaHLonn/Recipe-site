@@ -1,5 +1,6 @@
 <template>
     <div>
+        <Search v-on:search="handleSearch"></Search>
         <ul class="list">
             <li v-for="recipe in listOfRecipe" :key="recipe.id" class="recipe" @click="clickMethod(recipe._id)">
                 <h4>
@@ -31,7 +32,11 @@
 </template>
 
 <script>
+import Search from './Search.vue'
 export default {
+    components: {
+        Search
+    },
     data() {
         return {
             listOfRecipe: []
@@ -48,10 +53,19 @@ export default {
                 .then(data => this.listOfRecipe = data)
                 .catch(error => ("Error:", error));
         },
-        
-        
+
+
         clickMethod(id) {
             this.$router.push(`/Recipe/${id}`)
+        },
+        handleSearch(query) {
+            if (query === '') {
+                this.fetchMethod();
+            } else {
+                this.listOfRecipe = this.listOfRecipe.filter(recipe => {
+                    return recipe.title.toLowerCase().includes(query.toLowerCase());
+                })
+            }
         }
 
     }
@@ -61,7 +75,7 @@ export default {
 <style scoped>
 .list {
     list-style: none;
-   
+
 }
 
 .image {
@@ -75,6 +89,4 @@ export default {
     margin: 30px;
     text-align: center;
 }
-
-
 </style>
