@@ -2,23 +2,21 @@
     <div class="wrapper">
         <Search v-on:search="handleSearch"></Search>
         <div class="list">
-            <div v-for="recipe in listOfRecipe" :key="recipe.id" class="recipe" @click="clickMethod(recipe._id)">
-                <div class="recipeCard">
-                    <div class="cardImageBox recipeBoxPart">
-                        <img class="image" :src="recipe.imageUrl" alt="imageName">
-                    </div>
-                    <div class="description recipeBoxPart">
-                        <h4>
-                            {{ recipe.title }}
-                        </h4>
-                        <ShowRating :rating="recipe.avgRating" />
-                        <p class="time">
-                            {{ recipe.timeInMins }}
-                        </p>
-                        <p>
-                            {{ recipe.ingredients.length }} ingredienser.
-                        </p>
-                    </div>
+            <div v-for="recipe in listOfRecipe" :key="recipe.id" class="recipeCard" @click="clickMethod(recipe._id)">
+                <div class="cardImageBox recipeBoxPart">
+                    <img :src="recipe.imageUrl" alt="imageName">
+                </div>
+                <div class="description recipeBoxPart">
+                    <h4>
+                        {{ recipe.title }}
+                    </h4>
+                    <ShowRating :rating="recipe.avgRating" />
+                    <p class="time">
+                        {{ recipe.timeInMins }}
+                    </p>
+                    <p>
+                        {{ recipe.ingredients.length }} ingredienser.
+                    </p>
                 </div>
             </div>
         </div>
@@ -71,79 +69,69 @@ export default {
 
 <style scoped>
 .list {
-    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    margin:0;
+    padding:0;
 }
 
 .cardImageBox {
-    /* aspect-ratio: 1/1; */
-    overflow: hidden;
+    height:100%;
+    overflow:hidden;
     border-right: 1px #6D466B solid;
+
+}
+.cardImageBox img {
+    height:100%;
+    width:100%;
+    aspect-ratio: 1/1;
 }
 
 .recipeBoxPart {
-    flex: 1;
-    aspect-ratio: 1/1;
-    /* width:300px; */
+ flex:1;
 }
 
 .description {
     box-sizing: border-box;
     padding: 5px;
-    font-size:18px;
+    font-size: 18px;
 }
 
-.image {
-    height: 100%;
-}
-h4{
-    width:100%;
+h4 {
     box-sizing: border-box;
-    /* color: #2C0E37; */
     color: #F9DB6D;
-    font-size:32px;
+    font-size: 24px;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    
-    padding:0;
-    margin:0;
+    padding: 0;
+    margin: 0;
 }
 
 .recipeCard {
-    box-sizing: border-box;
-    border-width: 3px;
-    border-color:#8A4F7D;
-    border-style:unset;
-    /* background-color: #EF8275; */
-    background: linear-gradient( #EF8275, #F7B2AD);
-    border-radius: 20px;
-    overflow: hidden;
-    cursor: pointer;
-    margin: 5px;
-    display: flex;
-    flex: 1;
-    width:500px;
+    min-width:300px;
+    width:47%;
+    display:flex;
+    background: linear-gradient(#EF8275, #F7B2AD);
     transition-property: background-color;
-        transition-duration: 200ms;
+    transition-duration: 200ms;
+    border-radius:20px;
+    overflow:hidden;
+    box-sizing: border-box;
+    margin:10px;
+    /* aspect-ratio: 2/1; */
 }
 
 .recipeCard:hover {
-    /* background-color: #F7B2AD; */
-    background: linear-gradient( #f1a198, #fcd2cf);
+    background: linear-gradient(#f1a198, #fcd2cf);
+    box-shadow: 2px 2px #f1a198;
 }
 
-.list {
-    display: flex;
-    flex-wrap: wrap;
-    margin-bottom:200px;
-    flex:1;
+
+
+.time::before {
+    content: '\231B';
 }
-.time::before{
-    content: '\231B';	
-}
-.time::after{
+
+.time::after {
     content: ' minuter'
-}
-.wrapper{
-    display:flex;
-    flex-direction: column;
 }
 </style>
