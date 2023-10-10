@@ -1,14 +1,6 @@
 <template>
   <div class="searchBar">
-    <input
-      v-model="search"
-      @input="filterItems"
-      type="text"
-      placeholder="Search..."
-    />
-    <ul class="searchResults" v-if="search.length>2 && filteredItems.length>0"><!-- gömmer resultatet tills man skrivit minst tre tecken -->
-      <li v-for="item in filteredItems" :key="item.id">{{ item.name }}</li>
-    </ul>
+    <input v-model="searchQuery" v-on:input="searchRecipe" type="text" placeholder="Search..." />
   </div>
 </template>
 
@@ -18,36 +10,17 @@
 export default {
   data() {
     return {
-      search: "",
-      items: [
-        { id: 1, name: "Apple" },
-        { id: 2, name: "Banana" },
-        { id: 3, name: "Cherry" },
-        { id: 4, name: "Date" },
-        { id: 5, name: "Grape" },
-        // Add more items to the list
-      ],
-    };
+      searchQuery: ''
+    }
   },
-  computed: {
-    filteredItems: function () {
-      const search = this.search.toLowerCase();
-      var results = this.items.filter((item) =>
-        item.name.toLowerCase().includes(search)
-      );
-      
-      return results
-    },
-  },
+  methods: {
+    searchRecipe() {
+      this.$emit('search', this.searchQuery)
+    }
+  }
 };
 </script>
 
  
 
-<style scoped>
-.searchBar{
-  float: right;
-}
-
-
-</style>
+<style scoped></style>
