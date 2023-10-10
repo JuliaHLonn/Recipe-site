@@ -1,17 +1,20 @@
 <template>
     <div>
-        <div v-if="doComment">
+        <div v-if="doComment" class="doComment">
             <h2>Kommentarer</h2>
             <textarea :disabled="isDisabled" v-model="kommentar" placeholder="Skriv din kommentar här.."></textarea> <br>
             <input :disabled="isDisabled" v-model="namn" placeholder="Namn">
-            <button @click="postComment(kommentar,namn)">Skicka</button>
+            <button @click="postComment(kommentar, namn)">Skicka</button>
         </div>
         <div v-else>
             <h2>Thank you for your comment!</h2>
         </div>
-        <h1 @click="getComments">{{ getIt }}</h1>
         <div v-for="com in commentList">
-            <h3>{{ com.comment }} {{ com.name }}</h3>
+            <div class="showComment">
+                <h3>{{ com.name }}</h3>
+                <p>{{ com.comment }}</p>
+                <p>{{ com.date }}</p>
+            </div>
         </div>
     </div>
 </template>
@@ -19,6 +22,7 @@
 <script>
 
 export default {
+
     data() {
         return {
             kommentar: "",
@@ -27,13 +31,17 @@ export default {
             commentList: "",
             isDisabled: false,
             doComment: true
+
         }
     },
+    created() {
+        this.getComments()
+    },
     methods: {
-        getFormData(kommentar, namn){
+        getFormData(kommentar, namn) {
             console.log(kommentar, namn)
         },
-        
+
         postSomething(url, data) {
             const response = fetch(url, {
                 method: "POST",
@@ -49,28 +57,53 @@ export default {
             });
             return response;
         },
-        /* Måste ta in id på receptet som man är i och skicka med det i post och get funktionen mellan recipes och comment*/
+
         postComment(kommentar, namn) {
-            const url = "https://jau22-recept-grupp6-9v8e25zt13tu.reky.se/recipes/6513f70c99612c970cb37b4c/comments"
+            const recipeId = this.$route.params.id;
+            const url = "https://jau22-recept-grupp6-9v8e25zt13tu.reky.se/recipes/" + recipeId + "/comments";
             const data = {
                 "comment": kommentar,
-                "name": namn
+                "name": namn,
+                "date": this.getDateStamp()
             }
             this.disableFields();
-            this.postSomething(url, data).then(()=> this.doComment = false)
-            
+            this.postSomething(url, data).then(() => this.doComment = false)
+            console.log(data.date)
+
         },
-        disableFields(){
+        disableFields() {
             this.isDisabled = true;
         },
+        getDateStamp() {
+            const date = new Date();
+            const dateStamp = date.toISOString().split('T')[0];
+
+            return dateStamp;
+        },
+
         getComments() {
-            fetch('https://jau22-recept-grupp6-9v8e25zt13tu.reky.se/recipes/6513f70c99612c970cb37b4c/comments')
+            const recipeId = this.$route.params.id;
+            const url = "https://jau22-recept-grupp6-9v8e25zt13tu.reky.se/recipes/" + recipeId + "/comments";
+            fetch(url)
                 .then(response => response.json())
                 .then(data => this.commentList = data)
                 .catch(error => ("Error:", error));
+            console.log(this.getDateStamp());
         }
     }
 }
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.doComment {
+    margin: 5px;
+}
+
+.showComment {
+    background-color: #F6FDC3;
+    border: 2px solid orange;
+    padding: 2px;
+    margin: 5px;
+    width: 50%;
+}
+</style>
