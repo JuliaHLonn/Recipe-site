@@ -15,7 +15,7 @@ export default{
   <div class="container">
   <header>
     <RouterLink to ="/"><h1>Sugar Rush</h1></RouterLink>
-    <SearchBarVue></SearchBarVue>
+    
     
   </header>
   <aside>
