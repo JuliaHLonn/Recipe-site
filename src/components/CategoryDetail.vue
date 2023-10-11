@@ -39,13 +39,19 @@ export default {
     },
     data() {
         return {
-            listOfRecipe: []
-
+            listOfRecipe: [],
+            categoryName : this.$route.params.CategoryName
 
         };
     }, created() {
-         const categoryName = this.$route.params.CategoryName;
-        this.fetchMethodByName(categoryName)
+        this.fetchMethodByName(this.categoryName)
+    },
+    watch: {
+    '$route.params.CategoryName': function (newCategory, oldCategory) {
+      if (newCategory !== oldCategory) {
+        this.fetchMethodByName(newCategory);
+      }
+    }
     },
     methods: {
        fetchMethodByName(categoryName) {
@@ -61,7 +67,7 @@ export default {
         },
         handleSearch(query) {
             if (query === '') {
-                this.fetchMethod();
+                this.fetchMethodByName(this.categoryName)
             } else {
                 this.listOfRecipe = this.listOfRecipe.filter(recipe => {
                     return recipe.title.toLowerCase().includes(query.toLowerCase());
