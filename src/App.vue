@@ -87,6 +87,7 @@ main {
   grid-column-start: 2;
   grid-column-end: 3;
   padding:30px;
+  min-height:900px;
   
 
 }

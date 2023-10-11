@@ -1,7 +1,9 @@
 <template>
     <div>
         <Search v-on:search="handleSearch"></Search>
-        <ul class="list">
+        <RecipeCard :list="listOfRecipe"></RecipeCard>
+
+        <!-- <ul class="list">
             <li v-for="recipe in listOfRecipe" :key="recipe.id" class="recipe" @click="clickMethod(recipe._id)">
                 <h4>
                     Name: {{ recipe.title }}
@@ -26,16 +28,17 @@
             </li>
 
 
-        </ul>
+        </ul> -->
 
     </div>
 </template>
 
 <script>
 import Search from './Search.vue'
+import RecipeCard from './RecipeCard.vue';
 export default {
     components: {
-        Search
+        Search, RecipeCard
     },
     data() {
         return {

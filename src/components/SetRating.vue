@@ -73,25 +73,30 @@ export default {
 <style scoped>
 .stars {
     font-size: 80px;
-    color: rgb(172, 137, 169);
+    color: #F7B2AD;
 }
 
 .active {
-    color: rgb(255, 223, 80);
+    color: #F9DB6D;
 }
 .setRatingBox{
-    border-radius: 10px;
-    border-width: 1px;
-    border-color:blueviolet;
-    border-style:solid;
+    width: 60%;
+    min-width: 500px;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 20px;
+    border-width: 3px;
+    border-color: #EF8275;
+    border-style:dashed;
     box-sizing: border-box;
     padding: 10px;
     text-align: center;
 }
 #rateButton{
-    background-color:blueviolet;
-    border-color:blueviolet;
-    color:aliceblue;
+    background-color:#EF8275;
+    border-color:#EF8275;
+    color:#2C0E37;
     font-family: Arial, Helvetica, sans-serif;
     border-radius: 15px;
     box-shadow: inset;
@@ -99,12 +104,13 @@ export default {
     padding: 10px;
     font-size:large;
 }
-#rateButton:disabled{
-    background-color: rgb(223, 203, 221);
-    color:rgb(133, 120, 132);
-}
+
 #rateButton:hover{
-    background-color:rgb(173, 99, 241);
+    background-color:#F7B2AD;
+}
+#rateButton:disabled{
+    background-color: #e7ada6;
+    color:rgb(138, 105, 121);
 }
 #rateButton:active{
     background-color:rgb(120, 47, 189);

@@ -1,5 +1,5 @@
 <template>
-        <p class="ratingDisplay">Betyg:  <span class="avgStars">{{ getStars(rating) }}</span></p>
+        <p class="ratingDisplay"><span class="avgStars">{{ getStars(rating) }}</span></p>
 </template>
 
 <script>
