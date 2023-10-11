@@ -1,41 +1,19 @@
 <template>
-    <div>
+    <div class="wrapper">
         <Search v-on:search="handleSearch"></Search>
-        <ul class="list">
-            <li v-for="recipe in listOfRecipe" :key="recipe.id" class="recipe" @click="clickMethod(recipe._id)">
-                <h4>
-                    Name: {{ recipe.title }}
-                </h4>
-
-                <p>
-                    rating: {{ recipe.ratings }}
-                </p>
-
-                <p>
-                    tiden: {{ recipe.timeInMins }} minuter
-                </p>
-
-
-                <img class="image" :src="recipe.imageUrl" alt="imageName">
-
-                <p>
-                    Ingredienser: {{ recipe.ingredients.length }}
-                </p>
-
-
-            </li>
-
-
-        </ul>
-
+        <RecipeCard :list="listOfRecipe"></RecipeCard>
     </div>
 </template>
 
 <script>
 import Search from './Search.vue'
+import ShowRating from './ShowRating.vue';
+import RecipeCard from './RecipeCard.vue';
 export default {
     components: {
-        Search
+        Search,
+        ShowRating,
+        RecipeCard
     },
     data() {
         return {
@@ -73,20 +51,5 @@ export default {
 </script>
 
 <style scoped>
-.list {
-    list-style: none;
 
-}
-
-.image {
-    width: 50px;
-    height: 50px;
-}
-
-.recipe {
-    border: 1px solid black;
-    cursor: pointer;
-    margin: 30px;
-    text-align: center;
-}
 </style>
