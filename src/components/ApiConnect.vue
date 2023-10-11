@@ -36,6 +36,7 @@ console.log(category)
             <!-- <a href="#" @click="chosenCategory(category.name)">{{ category.name }} ({{ category.count }})</a> -->
             <RouterLink :to ="'/Category/'+category.name" @click="chosenCategory(category.name)">{{ category.name }} ({{ category.count }})</RouterLink>
         </li>
+        <RouterLink :to="'/'"><p>Alla kategorier</p></RouterLink>
         </ul>
         
     </div>
