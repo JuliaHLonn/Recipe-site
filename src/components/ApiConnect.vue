@@ -34,7 +34,7 @@ console.log(category)
         <ul>
             <li  v-for="category in list" >
             <!-- <a href="#" @click="chosenCategory(category.name)">{{ category.name }} ({{ category.count }})</a> -->
-            <RouterLink to ="/Category" @click="chosenCategory(category.name)">{{ category.name }} ({{ category.count }})</RouterLink>
+            <RouterLink :to ="'/Category/'+category.name" @click="chosenCategory(category.name)">{{ category.name }} ({{ category.count }})</RouterLink>
         </li>
         </ul>
         
