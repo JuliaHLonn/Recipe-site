@@ -1,21 +1,10 @@
-<template>
-    <div>
-<h1>{{ heading }}</h1>
-    </div>
-</template>
+<script setup>
+import CategoryDetail from '../components/CategoryDetail.vue'
 
-<script>
-export default {
-    data () {
-        
-
-        return {
-            heading: "KATEGORI"
-        }
-    }
-}
 </script>
 
-<style lang="scss" scoped>
+<template> 
+    <CategoryDetail/>
+</template>
 
-</style>
+

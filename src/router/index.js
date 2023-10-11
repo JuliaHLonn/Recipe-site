@@ -11,7 +11,7 @@ const router = createRouter({
       component: StartPage
     },
     {
-      path: '/Category',
+      path: '/Category/:CategoryName',
       name: 'Category',
       // route level code-splitting
       // this generates a separate chunk (About.[hash].js) for this route
