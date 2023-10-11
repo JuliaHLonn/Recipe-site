@@ -33,6 +33,9 @@ export default {
         clickMethod(id) {
             this.$router.push(`/Recipe/${id}`)
         },
+    },
+    components:{
+        ShowRating
     }
 }
 </script>
