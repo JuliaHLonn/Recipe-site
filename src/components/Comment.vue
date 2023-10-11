@@ -3,11 +3,13 @@
         <div v-if="doComment" class="doComment">
             <h2>Kommentarer</h2>
             <textarea :disabled="isDisabled" v-model="kommentar" placeholder="Skriv din kommentar här.."></textarea> <br>
+            <p>{{ valKommentar }}</p>
             <input :disabled="isDisabled" v-model="namn" placeholder="Namn">
-            <button @click="postComment(kommentar, namn)">Skicka</button>
+            <p>{{ valNamn }}</p>
+            <button @click="validate(kommentar, namn)">Skicka</button>
         </div>
         <div v-else>
-            <h2>Thank you for your comment!</h2>
+            <h2>Tack för din kommentar!</h2>
         </div>
         <div v-for="com in commentList">
             <div class="showComment">
@@ -27,10 +29,11 @@ export default {
         return {
             kommentar: "",
             namn: "",
-            getIt: "Get comments",
             commentList: "",
             isDisabled: false,
-            doComment: true
+            doComment: true,
+            valNamn: "",
+            valKommentar: ""
 
         }
     },
@@ -38,10 +41,6 @@ export default {
         this.getComments()
     },
     methods: {
-        getFormData(kommentar, namn) {
-            console.log(kommentar, namn)
-        },
-
         postSomething(url, data) {
             const response = fetch(url, {
                 method: "POST",
@@ -68,7 +67,6 @@ export default {
             }
             this.disableFields();
             this.postSomething(url, data).then(() => this.doComment = false)
-            console.log(data.date)
 
         },
         disableFields() {
@@ -89,9 +87,31 @@ export default {
                 .then(data => this.commentList = data)
                 .catch(error => ("Error:", error));
             console.log(this.getDateStamp());
+        },
+        validate(value1, value2) {
+        if (value1 == "" && value2 == "") {
+            this.valNamn = "Du behöver skriva in ditt namn";
+            this.valKommentar = "Skriv en kommentar";
         }
+        else if (value1 == "") {
+            this.valKommentar = "Skriv en kommentar";
+            this.valNamn = "";
+        }
+        else if (value2 == "") {
+            this.valNamn = "Du behöver skriva in ditt namn";
+            this.valKommentar = "";
+        }
+        else
+            this.postComment(value1, value2)
     }
+    }
+    
 }
+
+
+
+
+
 </script>
 
 <style lang="scss" scoped>
