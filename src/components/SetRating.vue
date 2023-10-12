@@ -113,6 +113,6 @@ export default {
     color:rgb(138, 105, 121);
 }
 #rateButton:active{
-    background-color:rgb(120, 47, 189);
+    background-color:#EF8275;
 }
 </style>

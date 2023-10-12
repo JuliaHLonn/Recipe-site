@@ -6,7 +6,8 @@ export default {
     data() {
         return {
             list: this.getCategories(),
-            categoryContainer: "side-bar"
+            categoryContainer: "side-bar",
+            selectedCategory: "all"
 
         }
     },
@@ -20,6 +21,15 @@ export default {
         },
         chosenCategory(category) {
             console.log(category)
+            this.selectedCategory = category
+        },
+        checkCategory(categoryName){
+            if(categoryName==this.selectedCategory){
+                return true;
+            }
+            else{
+                return false;
+            }
         }
 
     }
@@ -28,17 +38,16 @@ export default {
 </script>
 
 <template>
-    <!-- <div> -->
-    <div :class="categoryContainer">
+
+    <div class="categoryContainer">
         <ul>
             <li>
-                <RouterLink :to="'/'">
+                <RouterLink :to="'/'" @click="chosenCategory('all')" :class="{ activeCategory: checkCategory('all') }">
                     Alla kategorier
                 </RouterLink>
             </li>
             <li v-for="category in list">
-                <!-- <a href="#" @click="chosenCategory(category.name)">{{ category.name }} ({{ category.count }})</a> -->
-                <RouterLink :to="'/Category/' + category.name" @click="chosenCategory(category.name)">{{ category.name }} ({{
+                <RouterLink :to="'/Category/' + category.name" @click="chosenCategory(category.name)" :class="{ activeCategory: checkCategory(category.name) }">{{ category.name }} ({{
                     category.count }})</RouterLink>
             </li>
 
@@ -49,4 +58,29 @@ export default {
 
 
 
-<style scoped></style>
+<style scoped>
+.categoryContainer{
+    box-sizing: border-box;
+    padding:15px;
+    font-size:24px;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+}
+.categoryContainer a{
+    text-decoration: none;
+    color:#2C0E37;
+}
+.categoryContainer a:hover{
+    color: #9733bb;
+}
+.categoryContainer ul {
+    list-style-type: none;
+    margin-left:5px;
+    padding-left:0;
+}
+.categoryContainer li {
+    margin:10px;
+}
+.activeCategory{
+    font-weight: bold;
+}
+</style>
