@@ -36,7 +36,8 @@ export default {
             isDisabled: false,
             doComment: true,
             valNamn: "",
-            valKommentar: ""
+            valKommentar: "",
+
 
         }
     },
@@ -92,22 +93,24 @@ export default {
             console.log(this.getDateStamp());
         },
         validate(value1, value2) {
-        if (value1 == "" && value2 == "") {
-            this.valNamn = "Du behöver skriva in ditt namn";
-            this.valKommentar = "Skriv en kommentar";
+            if (value1 == "" && value2 == "") {
+                this.valNamn = "Du behöver skriva in ditt namn";
+                this.valKommentar = "Skriv en kommentar";
+            }
+            else if (value1 == "") {
+                this.valKommentar = "Skriv en kommentar";
+                this.valNamn = "";
+            }
+            else if (value2 == "") {
+                this.valNamn = "Du behöver skriva in ditt namn";
+                this.valKommentar = "";
+            }
+            else
+                this.postComment(value1, value2)
         }
-        else if (value1 == "") {
-            this.valKommentar = "Skriv en kommentar";
-            this.valNamn = "";
-        }
-        else if (value2 == "") {
-            this.valNamn = "Du behöver skriva in ditt namn";
-            this.valKommentar = "";
-        }
-        else
-            this.postComment(value1, value2)
     }
-    }
+    
+
 }
 </script>
 
