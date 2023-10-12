@@ -30,7 +30,6 @@ export default{
 <RouterView />
   </main>
   <footer>
-    <p>footer</p>
   </footer>
 </div>
   
@@ -43,7 +42,7 @@ export default{
   margin:0;
   padding: 0;
   display: grid;
-        grid-template-columns: 1fr 5fr;
+        grid-template-columns: 1fr 4fr;
 
 }
 header{
@@ -62,9 +61,6 @@ header h1{
   padding-left:30px;
   font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
   font-size: 64px;
-  /* background: linear-gradient(to right, #F9DB6D, #F9DB6D);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent; */
   color:#F9DB6D;
   text-shadow: 1px 1px 2px #2C0E37;
 
