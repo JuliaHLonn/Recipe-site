@@ -108,4 +108,14 @@ h4 {
 .time::after {
     content: ' minuter'
 }
+
+@media (max-width: 450px) {
+  .list{
+   margin-left: -24%;
+   flex-direction: row;
+   justify-content: center;
+   text-align: center;
+  }
+   
+}
 </style>
