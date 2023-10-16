@@ -1,11 +1,11 @@
 <script>
 import { RouterLink, RouterView } from 'vue-router'
-import ApiConnect from './components/ApiConnect.vue'
+import Categories from './components/CategoriesComponent.vue'
 import SearchBarVue from './components/Search.vue'
 
 
 export default{
-  components:{ApiConnect,SearchBarVue}
+  components:{Categories,SearchBarVue}
 }
 
 
@@ -20,7 +20,7 @@ export default{
   </header>
   <aside>
     <nav>
-      <ApiConnect></ApiConnect>
+      <Categories />
 
     </nav>
     
