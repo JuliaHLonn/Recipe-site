@@ -37,14 +37,6 @@ export default {
   flex:1;
 }
 
-@media (max-width: 450px) {
-  .searchBar input{
-    margin-left: -1%;
-    width: 80%;
-    font-size: medium;
-    flex-direction: row;
-    justify-content: center;
-  }
-}
+
    
 </style>

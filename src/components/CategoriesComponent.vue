@@ -15,7 +15,7 @@ export default {
             categoryContainer: "side-bar",
         }
     },
-    props:['categorySelect'],
+    props: ['categorySelect'],
     methods: {
         getCategories() {
             fetch(`https://jau22-recept-grupp6-9v8e25zt13tu.reky.se/categories`)
@@ -29,7 +29,7 @@ export default {
         },
 
         checkCategory(categoryName) {
-            if (categoryName == this.selectedCategory) {
+            if (categoryName == this.categorySelect) {
 
                 return true;
             }
@@ -45,11 +45,11 @@ export default {
 <template>
     <div class="categoryContainer">
         <div class="hamburger-button">
-     <HamburgerButton></HamburgerButton>
+            <HamburgerButton :category-select="categorySelect"></HamburgerButton>
         </div>
         <ul class="categoryList">
             <li>
-                <RouterLink :to="'/'" @click="chosenCategory('all')" :class="{ activeCategory: checkCategory(null) }">
+                <RouterLink :to="'/'" @click="chosenCategory(null)" :class="{ activeCategory: checkCategory(null) }">
                     Alla kategorier
                 </RouterLink>
             </li>
@@ -65,10 +65,29 @@ export default {
 </template>
 
 <style scoped>
+.categoryList {
+    display: none;
+}
+
+.hamburger-button {
+    display: block;
+}
+
+@media (min-width: 576px) {
+
+    .hamburger-button {
+        display: none;
+    }
+
+    .categoryList {
+        display: block;
+    }
+}
+
 .categoryContainer {
     box-sizing: border-box;
     padding: 15px;
-    font-size: 24px;
+    font-size: 18px;
     font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
@@ -95,21 +114,9 @@ export default {
     font-weight: bold;
 }
 
-@media (max-width: 450px) {
-    .categoryList {
-        display: none;
-    }
-
-    .hamburger-button {
-        display: block;
-    }
-}
-
-
-@media (min-width: 450px) {
-
-    .hamburger-button {
-        display: none;
+@media (min-width: 920px) {
+    .categoryContainer {
+        font-size: 24px;
     }
 }
 </style>

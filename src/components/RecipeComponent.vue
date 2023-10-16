@@ -1,19 +1,21 @@
 <template>
     <div class="wrapper">
-        <div class="summaryBox">
+        <div class="summaryBox recipeBox">
             <div class="imageWrapper"><img class="image" :src="recipe.imageUrl" :alt="recipe.title"></div>
             <div class="summaryText">
                 <h2 class="recipeHeader"> {{ recipe.title }} </h2>
-                
+
                 <div class="shortSummary">
-                    <p class="stars"><ShowRating :rating="recipe.avgRating"></ShowRating></p>
+                    <p class="stars">
+                        <ShowRating :rating="recipe.avgRating"></ShowRating>
+                    </p>
                     <p class="description">{{ recipe.description }}</p>
                     <p class="time"> {{ recipe.timeInMins }}</p>
                     <p>Antal ingredienser: {{ ingredientsTotal }}</p>
                 </div>
             </div>
         </div>
-        <div class="longDescriptionBox">
+        <div class="longDescriptionBox recipeBox">
             <div class="ingredientsList">
                 <p class="secondaryHeader">Ingredienser:</p>
                 <ul>
@@ -80,22 +82,22 @@ export default {
     height: 100%;
     width: 100%;
     aspect-ratio: 1/1;
-
 }
 
 .imageWrapper {
     height: 100%;
     overflow: hidden;
     flex: 1;
-    border-right: 3px solid #EF8275;
+    aspect-ratio: 1/1;
+}
+
+.recipeBox {
+    display: flex;
+    flex-direction: column;
 }
 
 .summaryBox {
-    width: 60%;
-    min-width: 500px;
-    max-width: 900px;
     display: flex;
-     aspect-ratio: 2 / 1; 
     margin-right: auto;
     margin-left: auto;
     border-radius: 20px;
@@ -103,40 +105,38 @@ export default {
     border: 3px dashed #EF8275;
     background-color: #F7B2AD;
 }
-.longDescriptionBox{
-    margin-top:40px;
-    width: 60%;
-    min-width: 500px;
-    max-width: 900px;
-    display: flex;
 
+.longDescriptionBox {
+    margin-top: 40px;
     margin-right: auto;
     margin-left: auto;
     border-radius: 20px;
     overflow: hidden;
     border: 3px dashed #EF8275;
     background-color: #F9DB6D;
-    margin-bottom:30px;
+    margin-bottom: 30px;
 }
-.ingredientsList{
-    box-sizing: border-box;
-    padding:20px;
-    flex:1;
-    border-right:3px solid #EF8275;
 
+.ingredientsList {
+    box-sizing: border-box;
+    padding: 20px;
+    flex: 1;
 }
-.secondaryHeader{
+
+.secondaryHeader {
     font-size: 24px;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    color:#EF8275
+    color: #EF8275
 }
-.instructions{
+
+.instructions {
     box-sizing: border-box;
-    padding:20px;
-    flex:1;
+    padding: 20px;
+    flex: 1;
 }
+
 .longDescriptionBox li {
-    padding:5px;
+    padding: 5px;
     font-size: 18px;
 }
 
@@ -150,6 +150,8 @@ export default {
     padding: 10px;
     background-color: #EF8275;
     color: #F9DB6D;
+    margin: 0;
+    margin-top: 8px;
 }
 
 h2 {
@@ -158,15 +160,22 @@ h2 {
 
 .shortSummary {
     padding: 20px;
-    padding-top:0;
+    padding-top: 0;
     text-align: center;
     font-size: 18px;
 }
-.stars{
-    color:#F9DB6D;
-    font-size:24px;
+
+.shortSummary p {
+    margin: 1px;
+    padding: 0;
+}
+
+.stars {
+    color: #F9DB6D;
+    font-size: 24px;
     text-shadow: 2px 2px 2px #EF8275;
 }
+
 .description {
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     font-size: 24px;
@@ -179,5 +188,28 @@ h2 {
 
 .time::after {
     content: ' minuter'
+}
+
+@media (min-width: 576px) {
+    .recipeBox {
+        width: 100%;
+        min-width: 300px;
+        flex-direction: row;
+        border-right: 3px solid #EF8275;
+        aspect-ratio: 2 / 1;
+    }
+
+    .imageWrapper {
+        border-right: 3px solid #EF8275;
+    }
+
+}
+
+@media (min-width: 920px) {
+    .recipeBox {
+        width: 60%;
+        min-width: 500px;
+        max-width: 900px;
+    }
 }
 </style>

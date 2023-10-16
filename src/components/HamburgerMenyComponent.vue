@@ -8,7 +8,8 @@
     <div v-if="isMenuOpen" class="menu-links">
       <ul class="categoryList">
         <li>
-          <RouterLink :to="'/'" @click="chosenCategory('all'); closeMenu()" :class="{ activeCategory: checkCategory('all') }">
+          <RouterLink :to="'/'" @click="chosenCategory(null); closeMenu()"
+            :class="{ activeCategory: checkCategory(null) }">
             Alla kategorier
           </RouterLink>
         </li>
@@ -31,7 +32,6 @@ export default {
     return {
       isMenuOpen: false,
       categoryList: this.getCategories(),
-      selectedCategory: "all"
     };
   },
   methods: {
@@ -54,9 +54,10 @@ export default {
       this.selectedCategory = category;
     },
     checkCategory(categoryName) {
-      return categoryName === this.selectedCategory;
+      return categoryName === this.categorySelect;
     }
   },
+  props: ['categorySelect'],
 };
 </script>
 
@@ -66,11 +67,12 @@ export default {
   left: 0px;
   cursor: pointer;
   transition: transform 0.3s ease;
-  margin-bottom: 10px;
-  margin-top: 20px;
   color: #F9DB6D;
   background-color: #9733bb;
-  padding: 5px 10px;
+  padding: 10px;
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
 }
 
 
@@ -81,7 +83,7 @@ export default {
   text-decoration: none;
   font-size: 15px;
   margin-bottom: 5px;
-  font-weight: bold;
+  font-size: 28px;
 }
 
 .categoryList {
@@ -92,5 +94,9 @@ export default {
 
 .menu-links a:hover {
   color: #9733bb;
+}
+
+.activeCategory {
+  font-weight: bold;
 }
 </style>
