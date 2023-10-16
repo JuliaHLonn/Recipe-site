@@ -13,11 +13,9 @@ export default {
         return {
             list: this.getCategories(),
             categoryContainer: "side-bar",
-            selectedCategory: "all"
-
         }
     },
-
+    props:['categorySelect'],
     methods: {
         getCategories() {
             fetch(`https://jau22-recept-grupp6-9v8e25zt13tu.reky.se/categories`)
@@ -29,15 +27,16 @@ export default {
             console.log(category)
             this.selectedCategory = category
         },
+
         checkCategory(categoryName) {
             if (categoryName == this.selectedCategory) {
+
                 return true;
             }
             else {
                 return false;
             }
         }
-
     }
 }
 
@@ -50,7 +49,7 @@ export default {
         </div>
         <ul class="categoryList">
             <li>
-                <RouterLink :to="'/'" @click="chosenCategory('all')" :class="{ activeCategory: checkCategory('all') }">
+                <RouterLink :to="'/'" @click="chosenCategory('all')" :class="{ activeCategory: checkCategory(null) }">
                     Alla kategorier
                 </RouterLink>
             </li>
@@ -64,8 +63,6 @@ export default {
 
     </div>
 </template>
-
-
 
 <style scoped>
 .categoryContainer {
