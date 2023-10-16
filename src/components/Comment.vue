@@ -87,6 +87,11 @@ export default {
                 this.postComment(value1, value2)
         }
     }
+<<<<<<< HEAD
+=======
+    
+
+>>>>>>> dev
 }
 </script>
 
