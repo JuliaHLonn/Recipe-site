@@ -1,11 +1,11 @@
 <script>
 import { RouterLink, RouterView } from 'vue-router'
-import ApiConnect from './components/ApiConnect.vue'
+import Categories from './components/CategoriesComponent.vue'
 import SearchBarVue from './components/Search.vue'
 
 
-export default {
-  components: { ApiConnect, SearchBarVue },
+export default{
+  components:{Categories,SearchBarVue},
   data() {
     return {
       categoryView: "all"
@@ -19,26 +19,31 @@ export default {
 }
 
 
+
 </script>
 
 <template>
   <div class="container">
-    <header>
-      <RouterLink to="/">
-        <h1>Sugar Rush</h1>
-      </RouterLink>
-    </header>
-    <aside>
-      <nav>
-        <ApiConnect :category-select="categoryView"></ApiConnect>
-      </nav>
-    </aside>
-    <main>
-      <RouterView />
-    </main>
-    <footer>
-    </footer>
-  </div>
+  <header>
+    <RouterLink to ="/"><h1>Sugar Rush</h1></RouterLink>
+    
+    
+  </header>
+  <aside>
+    <nav>
+      <Categories :category-select="categoryView" />
+
+    </nav>
+    
+
+  </aside>
+  <main>
+<RouterView />
+  </main>
+  <footer>
+  </footer>
+</div>
+  
 </template>
 
 <style scoped>

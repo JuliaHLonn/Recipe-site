@@ -1,10 +1,10 @@
 <script setup>
-import Card from '../components/CardComponent.vue'
+import Recipes from '../components/SearchResults.vue'
 
 </script>
 
 <template> 
-    <Card />
+    <Recipes />
 </template>
 
 

@@ -95,7 +95,7 @@ export default {
     min-width: 500px;
     max-width: 900px;
     display: flex;
-    aspect-ratio: 2 / 1;
+     aspect-ratio: 2 / 1; 
     margin-right: auto;
     margin-left: auto;
     border-radius: 20px;

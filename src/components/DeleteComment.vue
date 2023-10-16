@@ -5,10 +5,11 @@
 </template>
 
 <script>
+
 export default {
     data() {
         return {
-            deleteButton: "Delete"
+            deleteButton: "Delete"        
         }
     },
     methods: {

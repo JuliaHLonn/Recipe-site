@@ -14,13 +14,6 @@
             <h2>Tack för din kommentar!</h2>
         </div>
         <div class="commentHeader"><h2>Kommentarer</h2></div>
-        <div v-for="com in commentList" class="commentsWrapper">
-            <div class="showComment">
-                <h3>{{ com.name }}</h3>
-                <p>{{ com.comment }}</p>
-                <p>{{ com.date }}</p>
-            </div>
-        </div>
     </div>
 </template>
 
@@ -32,7 +25,6 @@ export default {
         return {
             kommentar: "",
             namn: "",
-            commentList: "",
             isDisabled: false,
             doComment: true,
             valNamn: "",
@@ -40,9 +32,6 @@ export default {
 
 
         }
-    },
-    created() {
-        this.getComments()
     },
     methods: {
         postSomething(url, data) {
@@ -71,7 +60,6 @@ export default {
             }
             this.disableFields();
             this.postSomething(url, data).then(() => this.doComment = false)
-
         },
         disableFields() {
             this.isDisabled = true;
@@ -81,16 +69,6 @@ export default {
             const dateStamp = date.toISOString().split('T')[0];
 
             return dateStamp;
-        },
-
-        getComments() {
-            const recipeId = this.$route.params.id;
-            const url = "https://jau22-recept-grupp6-9v8e25zt13tu.reky.se/recipes/" + recipeId + "/comments";
-            fetch(url)
-                .then(response => response.json())
-                .then(data => this.commentList = data)
-                .catch(error => ("Error:", error));
-            console.log(this.getDateStamp());
         },
         validate(value1, value2) {
             if (value1 == "" && value2 == "") {
@@ -109,8 +87,11 @@ export default {
                 this.postComment(value1, value2)
         }
     }
+<<<<<<< HEAD
+=======
     
 
+>>>>>>> dev
 }
 </script>
 
