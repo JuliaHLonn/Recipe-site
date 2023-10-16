@@ -2,7 +2,13 @@
 
 import { RouterLink, RouterView } from "vue-router"
 
+import HamburgerButton from './HamburgerMenyComponent.vue'
+
 export default {
+    components: {
+        HamburgerButton
+    },
+
     data() {
         return {
             list: this.getCategories(),
@@ -21,11 +27,13 @@ export default {
             console.log(category)
             this.selectedCategory = category
         },
-        checkCategory(categoryName){
-            if(categoryName==this.categorySelect){
+
+        checkCategory(categoryName) {
+            if (categoryName == this.selectedCategory) {
+
                 return true;
             }
-            else{
+            else {
                 return false;
             }
         }
@@ -35,17 +43,20 @@ export default {
 </script>
 
 <template>
-
     <div class="categoryContainer">
-        <ul>
+        <div class="hamburger-button">
+     <HamburgerButton></HamburgerButton>
+        </div>
+        <ul class="categoryList">
             <li>
                 <RouterLink :to="'/'" @click="chosenCategory('all')" :class="{ activeCategory: checkCategory(null) }">
                     Alla kategorier
                 </RouterLink>
             </li>
             <li v-for="category in list">
-                <RouterLink :to="'/Category/' + category.name" @click="chosenCategory(category.name)" :class="{ activeCategory: checkCategory(category.name) }">{{ category.name }} ({{
-                    category.count }})</RouterLink>
+                <RouterLink :to="'/Category/' + category.name" @click="chosenCategory(category.name)"
+                    :class="{ activeCategory: checkCategory(category.name) }">{{ category.name }} ({{
+                        category.count }})</RouterLink>
             </li>
 
         </ul>
@@ -54,28 +65,51 @@ export default {
 </template>
 
 <style scoped>
-.categoryContainer{
+.categoryContainer {
     box-sizing: border-box;
-    padding:15px;
-    font-size:24px;
-    font-family:Georgia, 'Times New Roman', Times, serif;
+    padding: 15px;
+    font-size: 24px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
 }
-.categoryContainer a{
+
+.categoryContainer a {
     text-decoration: none;
-    color:#2C0E37;
+    color: #2C0E37;
 }
-.categoryContainer a:hover{
+
+.categoryContainer a:hover {
     color: #9733bb;
 }
+
 .categoryContainer ul {
     list-style-type: none;
-    margin-left:5px;
-    padding-left:0;
+    margin-left: 5px;
+    padding-left: 0;
 }
+
 .categoryContainer li {
-    margin:10px;
+    margin: 10px;
 }
-.activeCategory{
+
+.activeCategory {
     font-weight: bold;
+}
+
+@media (max-width: 450px) {
+    .categoryList {
+        display: none;
+    }
+
+    .hamburger-button {
+        display: block;
+    }
+}
+
+
+@media (min-width: 450px) {
+
+    .hamburger-button {
+        display: none;
+    }
 }
 </style>
