@@ -81,8 +81,6 @@ h4 {
 }
 
 .recipeCard {
-    min-width: 300px;
-    width: 47%;
     display: flex;
     background: linear-gradient(#EF8275, #F7B2AD);
     transition-property: background-color;
@@ -91,14 +89,12 @@ h4 {
     overflow: hidden;
     box-sizing: border-box;
     margin: 10px;
-    /* aspect-ratio: 2/1; */
 }
 
 .recipeCard:hover {
     background: linear-gradient(#f1a198, #fcd2cf);
     box-shadow: 2px 2px #f1a198;
 }
-
 
 
 .time::before {
@@ -109,13 +105,15 @@ h4 {
     content: ' minuter'
 }
 
-@media (max-width: 450px) {
-  .list{
-   margin-left: -24%;
-   flex-direction: row;
-   justify-content: center;
-   text-align: center;
-  }
-   
+
+@media only screen and (min-width: 576px){
+    .recipeCard {
+    min-width: 250px;
+    width: 100%;}
+}
+@media only screen and (min-width: 920px){
+    .recipeCard {
+    min-width: 300px;
+    width: 47%;}
 }
 </style>

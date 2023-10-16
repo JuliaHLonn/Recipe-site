@@ -13,7 +13,7 @@
                 @mouseleave="hoverRating = clickedRating" @click="clickedRating = 5">★</span>
         </div>
         <p v-if="ratingDone">Tack för ditt omdöme!</p>
-        <button v-else id="rateButton" @click="submitRating()" :disabled="buttonCheck" >Betygsätt recept!</button>
+        <button v-else id="rateButton" @click="submitRating()" :disabled="buttonCheck">Betygsätt recept!</button>
 
 
     </div>
@@ -57,12 +57,12 @@ export default {
             this.ratingDone = true;
         }
     },
-    computed:{
-        buttonCheck(){
-            if(this.clickedRating<=0){
+    computed: {
+        buttonCheck() {
+            if (this.clickedRating <= 0) {
                 return true;
             }
-            else{
+            else {
                 return false;
             }
         }
@@ -79,40 +79,55 @@ export default {
 .active {
     color: #F9DB6D;
 }
-.setRatingBox{
-    width: 60%;
-    min-width: 500px;
-    max-width: 900px;
+
+.setRatingBox {
     margin-left: auto;
     margin-right: auto;
     border-radius: 20px;
     border-width: 3px;
     border-color: #EF8275;
-    border-style:dashed;
+    border-style: dashed;
     box-sizing: border-box;
     padding: 10px;
     text-align: center;
 }
-#rateButton{
-    background-color:#EF8275;
-    border-color:#EF8275;
-    color:#2C0E37;
+
+#rateButton {
+    background-color: #EF8275;
+    border-color: #EF8275;
+    color: #2C0E37;
     font-family: Arial, Helvetica, sans-serif;
     border-radius: 15px;
     box-shadow: inset;
     box-sizing: border-box;
     padding: 10px;
-    font-size:large;
+    font-size: large;
 }
 
-#rateButton:hover{
-    background-color:#F7B2AD;
+#rateButton:hover {
+    background-color: #F7B2AD;
 }
-#rateButton:disabled{
+
+#rateButton:disabled {
     background-color: #e7ada6;
-    color:rgb(138, 105, 121);
+    color: rgb(138, 105, 121);
 }
-#rateButton:active{
-    background-color:#EF8275;
+
+#rateButton:active {
+    background-color: #EF8275;
 }
-</style>
+
+@media (min-width: 576px) {
+    .setRatingBox {
+        width: 100%;
+        min-width: 300px;
+    }
+}
+
+@media (min-width: 920px) {
+    .setRatingBox {
+        width: 60%;
+        min-width: 500px;
+        max-width: 900px;
+    }
+}</style>
