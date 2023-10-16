@@ -12,7 +12,8 @@
             <span :class="{ active: hoverRating >= 5 }" @mouseover="previewStars(5)"
                 @mouseleave="hoverRating = clickedRating" @click="clickedRating = 5">★</span>
         </div>
-        <p v-if="ratingDone">Tack för ditt omdöme!</p>
+        
+        <p v-if="ratingDone" >Tack för ditt omdöme!</p>
         <button v-else id="rateButton" @click="submitRating()" :disabled="buttonCheck" >Betygsätt recept!</button>
 
 
