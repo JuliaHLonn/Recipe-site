@@ -196,7 +196,9 @@ h2 {
         min-width: 300px;
         flex-direction: row;
         border-right: 3px solid #EF8275;
-        aspect-ratio: 2 / 1;
+    }
+    .summaryBox{
+        aspect-ratio: 2/1;
     }
 
     .imageWrapper {
