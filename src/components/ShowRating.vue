@@ -1,5 +1,5 @@
 <template>
-        <p class="ratingDisplay"><span class="avgStars">{{ getStars(rating) }}</span></p>
+        <p class="ratingDisplay"><span class="avgStars">{{ getStars(rating) }} ({{ rating }} / 5)</span></p>
 </template>
 
 <script>
