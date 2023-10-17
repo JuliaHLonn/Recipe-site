@@ -1,5 +1,5 @@
 <template>
-        <p class="ratingDisplay"><span class="avgStars">{{ getStars(rating) }} ({{ rating }} / 5)</span></p>
+        <p class="ratingDisplay"><span class="avgStars">{{ getStars(rating) }} ({{ shortRating(rating) }} / 5)</span></p>
 </template>
 
 <script>
@@ -17,6 +17,16 @@
                     string = string+ "★"
                 }
                 return string;
+            },
+            shortRating(rating){
+                var score;
+                try{
+                    score = rating.toFixed(1);
+                }
+                catch{
+                    score = rating;
+                }
+                return score;
             }
         },
     }
