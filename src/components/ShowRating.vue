@@ -26,7 +26,6 @@
                 catch{
                     score = rating;
                 }
-                console.log("score", score)
                 return score;
             }
         },
