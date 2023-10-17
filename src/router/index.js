@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import StartPage from '../views/StartPage.vue'
 import RecipePage from '../views/RecipePage.vue'
 
+
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
@@ -9,6 +10,10 @@ const router = createRouter({
       path: '/',
       name: 'home',
       component: StartPage
+    },
+    {
+      path: '/*',
+      component: 404
     },
     {
       path: '/Category/:CategoryName',
