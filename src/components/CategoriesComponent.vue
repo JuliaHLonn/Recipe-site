@@ -24,7 +24,6 @@ export default {
                 .catch((error) => console.log(error));
         },
         chosenCategory(category) {
-            console.log(category)
             this.selectedCategory = category
         },
 

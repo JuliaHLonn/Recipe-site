@@ -3,8 +3,6 @@
     <button @click="toggleMenu" class="hamburger-button">
       <i :class="isMenuOpen ? 'fa fa-times' : 'fa fa-bars'"></i>
     </button>
-
-    <!-- Links that appear below the button -->
     <div v-if="isMenuOpen" class="menu-links">
       <ul class="categoryList">
         <li>
@@ -50,7 +48,6 @@ export default {
         .catch((error) => console.log(error));
     },
     chosenCategory(category) {
-      console.log(category);
       this.selectedCategory = category;
     },
     checkCategory(categoryName) {

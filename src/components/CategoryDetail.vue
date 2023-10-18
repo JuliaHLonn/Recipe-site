@@ -2,34 +2,6 @@
     <div>
         <Search v-on:search="handleSearch"></Search>
         <RecipeCard :list="listOfRecipe"></RecipeCard>
-
-        <!-- <ul class="list">
-            <li v-for="recipe in listOfRecipe" :key="recipe.id" class="recipe" @click="clickMethod(recipe._id)">
-                <h4>
-                    Name: {{ recipe.title }}
-                </h4>
-
-                <p>
-                    rating: {{ recipe.ratings }}
-                </p>
-
-                <p>
-                    tiden: {{ recipe.timeInMins }} minuter
-                </p>
-
-
-                <img class="image" :src="recipe.imageUrl" alt="imageName">
-
-                <p>
-                    Ingredienser: {{ recipe.ingredients.length }}
-                </p>
-
-
-            </li>
-
-
-        </ul> -->
-
     </div>
 </template>
 

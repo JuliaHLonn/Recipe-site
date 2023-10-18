@@ -51,15 +51,11 @@ export default{
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  display: grid;
-  /* grid-template-columns: 1fr 4fr; */
-  
+  display: grid; 
 }
 
 header {
   box-sizing: border-box;
-  /* grid-column-start: 1;
-  grid-column-end: 3; */
   background-color: #EF8275;
 }
 
@@ -80,8 +76,6 @@ header h1 {
 
 aside {
   box-sizing: border-box;
-  /* grid-column-start: 1;
-  grid-column-end: 2; */
   background-color: #F7B2AD;
 
 }
@@ -93,16 +87,11 @@ aside {
 main {
   background-color: white;
   box-sizing: border-box;
-  /* grid-column-start: 2;
-  grid-column-end: 3; */
-  /* padding: 30px; */
   min-height: 900px;
 }
 
 footer {
   box-sizing: border-box;
-  /* grid-column-start: 1;
-  grid-column-end: 3; */
   text-align: center;
   background-color: #EF8275;
   min-height: 150px;
